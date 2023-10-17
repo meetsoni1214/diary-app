@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace 'com.example.diary'
-    compileSdk 34
+    compileSdk ProjectConfig.compileSdk
 
     defaultConfig {
         applicationId "com.example.diary"
-        minSdk 21
-        targetSdk 34
+        minSdk ProjectConfig.minSdk
+        targetSdk ProjectConfig.targetSdk
         versionCode 1
         versionName "1.0"
 
@@ -42,7 +42,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.4.6'
+        kotlinCompilerExtensionVersion ProjectConfig.extensionVersion
     }
     packagingOptions {
         resources {
@@ -117,4 +117,10 @@ dependencies {
     // Desugar JDK
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.0'
 
+    implementation(project(":core:ui"))
+    implementation(project(":core:util"))
+    implementation(project(":data:mongo"))
+    implementation(project(":feature:auth"))
+    implementation(project(":feature:home"))
+    implementation(project(":feature:write"))
 }
