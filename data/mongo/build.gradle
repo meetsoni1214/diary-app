@@ -1,9 +1,8 @@
 plugins {
-    alias(libs.plugins.com.android.library)
-    alias(libs.plugins.org.jetbrains.kotlin.android)
-    id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
-//    id 'com.google.devtools.ksp'
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+//    id 'kotlin-kapt'
+    id 'com.google.devtools.ksp'
     id 'io.realm.kotlin'
 }
 
@@ -38,18 +37,13 @@ android {
 }
 
 dependencies {
-
     implementation libs.core.ktx
     implementation libs.coroutines.core
     implementation libs.realm.sync
 
     implementation libs.room.runtime
     implementation libs.room.ktx
-    kapt libs.room.compiler
-//    ksp libs.room.compiler
-
-    implementation libs.hilt.android
-    implementation libs.hilt.compiler
+    ksp libs.room.compiler
 
     implementation(project(":core:util"))
 }

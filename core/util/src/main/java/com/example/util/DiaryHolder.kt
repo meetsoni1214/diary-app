@@ -102,7 +102,7 @@ fun DiaryHolder(
                 MutableInteractionSource()
             }
         ) {
-            onClick(diary._id.toString())
+            onClick(diary._id.toHexString())
         }
     ) {
         Spacer(modifier = Modifier.width(14.dp))

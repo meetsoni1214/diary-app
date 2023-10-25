@@ -2,7 +2,9 @@ package com.example.write
 
 import android.net.Uri
 import android.widget.Toast
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -13,6 +15,8 @@ import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -27,6 +31,7 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
@@ -41,13 +46,10 @@ import com.example.util.model.Mood
 import com.example.ui.GalleryImage
 import com.example.ui.GalleryState
 import com.example.util.GalleryUploader
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.PagerState
 import io.realm.kotlin.ext.toRealmList
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalPagerApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 internal fun WriteContent(
     pagerState: PagerState,
@@ -86,17 +88,21 @@ internal fun WriteContent(
         ) {
             Spacer(modifier = Modifier.height(30.dp))
             HorizontalPager(
-                state = pagerState,
-                count = Mood.values().size
+                state = pagerState
             ) {page ->
-                AsyncImage(
-                    modifier = Modifier.size(120.dp),
-                    model = ImageRequest.Builder(LocalContext.current)
-                        .data(Mood.values()[page].icon)
-                        .crossfade(true)
-                        .build(),
-                    contentDescription = "Mood Image"
-                )
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    AsyncImage(
+                        modifier = Modifier.size(120.dp),
+                        model = ImageRequest.Builder(LocalContext.current)
+                            .data(Mood.values()[page].icon)
+                            .crossfade(true)
+                            .build(),
+                        contentDescription = "Mood Image"
+                    )
+                }
             }
             Spacer(modifier = Modifier.height(30.dp))
             TextField(

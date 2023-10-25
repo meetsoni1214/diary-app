@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.com.android.library)
-    alias(libs.plugins.org.jetbrains.kotlin.android)
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
     id 'io.realm.kotlin'
 }
 
@@ -41,13 +41,14 @@ android {
 }
 
 dependencies {
+    implementation libs.compose.tooling.preview
     implementation libs.core.ktx
     implementation libs.firebase.storage
     implementation libs.realm.sync
     implementation libs.coroutines.core
     implementation libs.activity.compose
-    implementation libs.compose.tooling.preview
-    implementation libs.coil
     implementation libs.material3.compose
+    implementation libs.coil
+
     implementation(project(":core:ui"))
 }

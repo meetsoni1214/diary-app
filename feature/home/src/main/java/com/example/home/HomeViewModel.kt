@@ -21,6 +21,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancelAndJoin
+import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.time.ZonedDateTime
@@ -61,7 +62,7 @@ internal class HomeViewModel @Inject constructor(
             if (::filteredDiariesJob.isInitialized) {
                 filteredDiariesJob.cancelAndJoin()
             }
-            MongoDB.getAllDiaries().collect { result ->
+            MongoDB.getAllDiaries().debounce(2000).collect { result ->
                 diaries.value = result
             }
         }

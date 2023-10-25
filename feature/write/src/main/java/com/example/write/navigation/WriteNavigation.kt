@@ -3,6 +3,7 @@ package com.example.write.navigation
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -18,10 +19,9 @@ import com.example.util.Screen
 import com.example.util.model.Mood
 import com.example.write.WriteScreen
 import com.example.write.WriteViewModel
-import com.google.accompanist.pager.ExperimentalPagerApi
 
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalPagerApi::class)
+@OptIn(ExperimentalFoundationApi::class)
 fun NavGraphBuilder.writeRoute(
     onBackPressed:() -> Unit,
 ) {
@@ -37,7 +37,7 @@ fun NavGraphBuilder.writeRoute(
         val galleryState = viewModel.galleryState
         val uiState = viewModel.uiState
         val context = LocalContext.current
-        val pagerState = com.google.accompanist.pager.rememberPagerState()
+        val pagerState = rememberPagerState(pageCount = { Mood.values().size})
         val pageNumber by remember { derivedStateOf { pagerState.currentPage} }
         LaunchedEffect(key1 = Unit) {
             Log.d("SelectedDiary", "${uiState.selectedDiaryId}")

@@ -26,12 +26,12 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.realm.kotlin.types.ObjectId
 import io.realm.kotlin.types.RealmInstant
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.mongodb.kbson.ObjectId
 import java.time.ZonedDateTime
 import javax.inject.Inject
 
@@ -60,7 +60,7 @@ internal class WriteViewModel @Inject constructor(
         if (uiState.selectedDiaryId != null) {
             viewModelScope.launch(Dispatchers.Main) {
                 MongoDB.getSelectedDiary(
-                    diaryId = ObjectId.Companion.from(uiState.selectedDiaryId!!)
+                    diaryId = ObjectId.invoke(uiState.selectedDiaryId!!)
                 )
                     .catch {
                         emit(RequestState.Error(Exception("Diary is already deleted!")))
@@ -146,7 +146,7 @@ internal class WriteViewModel @Inject constructor(
         onError: (String) -> Unit
     ) {
         val result = MongoDB.updateDiary(diary = diary.apply {
-            _id = ObjectId.Companion.from(uiState.selectedDiaryId!!)
+            _id = ObjectId.invoke(uiState.selectedDiaryId!!)
             date = if (uiState.updatedDateTime != null) {
                 uiState.updatedDateTime!!
             } else {
@@ -171,7 +171,7 @@ internal class WriteViewModel @Inject constructor(
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             if (uiState.selectedDiaryId != null) {
-                val result = MongoDB.deleteDiary(id = ObjectId.from(uiState.selectedDiaryId!!))
+                val result = MongoDB.deleteDiary(id = ObjectId.invoke(uiState.selectedDiaryId!!))
                 if (result is RequestState.Success) {
                     withContext(Dispatchers.Main) {
                         uiState.selectedDiary?.let { deleteImagesFromFirebase(images = it.images) }

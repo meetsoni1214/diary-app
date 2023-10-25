@@ -1,33 +1,30 @@
 [versions]
 compose = "1.4.6"
 kotlin = "1.8.20"
-core-ktx = "1.10.1"
-lifecycle-runtime = "2.6.1"
+core-ktx = "1.12.0"
+lifecycle-runtime = "2.6.2"
 activity-compose = "1.7.2"
-material3-compose = "1.2.0-alpha03"
+material3-compose = "1.2.0-alpha08"
 junit = "4.13.2"
 junit-ext = "1.1.5"
 espresso = "3.5.1"
-compose-navigation = "2.6.0"
-firebase-auth = "22.1.0"
+compose-navigation = "2.7.3"
+firebase-auth = "22.1.2"
 firebase-storage = "20.2.1"
 room = "2.5.2"
-runtime-compose = "2.6.1"
+runtime-compose = "2.6.2"
 splash = "1.0.1"
-realm = "1.10.0"
-kotlin-coroutines-core = "1.7.0"
-dagger-hilt = "2.44.2"
+realm = "1.11.0"
+kotlin-coroutines-core = "1.7.1"
+dagger-hilt = "2.48"
 hilt-navigation-compose = "1.0.0"
 coil = "2.3.0"
-accompanist = "0.27.0"
+# [DEPRECATED]
+#accompanist = "0.27.0"
 date-time-picker = "1.0.2"
 message-bar-compose = "1.0.5"
 one-tap-compose = "1.0.7"
-desugar = "1.2.0"
-agp = "8.1.0"
-org-jetbrains-kotlin-android = "1.8.20"
-appcompat = "1.6.1"
-material = "1.9.0"
+desugar = "2.0.3"
 
 [libraries]
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx"}
@@ -57,16 +54,11 @@ hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagge
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "dagger-hilt"}
 hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-navigation-compose"}
 coil = { module = "io.coil-kt:coil-compose", version.ref = "coil"}
-accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist"}
+# [DEPRECATED]
+#accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist"}
 date-time-picker = { module = "com.maxkeppeler.sheets-compose-dialogs:core", version.ref = "date-time-picker"}
 date-dialog = { module = "com.maxkeppeler.sheets-compose-dialogs:calendar", version.ref = "date-time-picker"}
 time-dialog = { module = "com.maxkeppeler.sheets-compose-dialogs:clock", version.ref = "date-time-picker"}
 message-bar-compose = { module = "com.github.stevdza-san:MessageBarCompose", version.ref = "message-bar-compose"}
 one-tap-compose = { module = "com.github.stevdza-san:OneTapCompose", version.ref = "one-tap-compose"}
 desugar-jdk = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar"}
-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-protolite-well-known-types = { group = "com.google.firebase", name = "protolite-well-known-types", version = "18.0.0" }
-[plugins]
-com-android-library = { id = "com.android.library", version.ref = "agp" }
-org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
