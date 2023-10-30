@@ -51,7 +51,7 @@ internal class WriteViewModel @Inject constructor(
         fetchSelectedDiary()
     }
 
-    fun getDiaryIdArgument() {
+    private fun getDiaryIdArgument() {
         uiState = uiState.copy(
             selectedDiaryId = savedStateHandle.get<String>(key = WRITE_SCREEN_ARGUMENT_KEY)
         )
