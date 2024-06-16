@@ -17,7 +17,7 @@ splash = "1.0.1"
 realm = "1.11.0"
 kotlin-coroutines-core = "1.7.1"
 dagger-hilt = "2.48"
-hilt-navigation-compose = "1.0.0"
+hilt-navigation-compose = "1.2.0"
 coil = "2.3.0"
 # [DEPRECATED]
 #accompanist = "0.27.0"

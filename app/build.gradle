@@ -9,14 +9,15 @@ plugins {
 }
 
 android {
-    namespace 'com.example.diary'
+    namespace 'com.meet.diary'
     compileSdk ProjectConfig.compileSdk
 
     defaultConfig {
-        applicationId "com.example.diary"
+        applicationId "com.meet.diary"
         minSdk ProjectConfig.minSdk
         targetSdk ProjectConfig.targetSdk
-        versionName "1.0"
+        versionCode 5
+        versionName "5.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
