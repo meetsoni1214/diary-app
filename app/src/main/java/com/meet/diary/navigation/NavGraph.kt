@@ -5,10 +5,10 @@ import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.meet.auth.navigation.authenticationRoute
-import com.meet.home.navigation.homeRoute
 import com.meet.util.Screen
 import com.meet.write.navigation.writeRoute
+import com.meet.auth.navigation.authenticationRoute
+import com.meet.home.navigation.homeRoute
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable

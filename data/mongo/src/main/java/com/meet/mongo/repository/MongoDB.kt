@@ -1,9 +1,9 @@
 package com.meet.mongo.repository
 
 import android.annotation.SuppressLint
+import com.meet.util.Constants.APP_ID
 import com.meet.util.model.Diary
 import com.meet.util.model.RequestState
-import com.meet.util.Constants.APP_ID
 import com.meet.util.toInstant
 import io.realm.kotlin.Realm
 import io.realm.kotlin.ext.query
@@ -16,10 +16,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import org.mongodb.kbson.ObjectId
-import java.time.LocalDateTime
-import java.time.LocalTime
-import java.time.ZoneId
-import java.time.ZonedDateTime
+import java.time.*
 
 object MongoDB: MongoRepository {
     private val app = App.create(APP_ID)
@@ -45,6 +42,7 @@ object MongoDB: MongoRepository {
         }
     }
 
+    @SuppressLint("NewApi")
     override fun getAllDiaries(): Flow<Diaries> {
         return if (user != null) {
             try {

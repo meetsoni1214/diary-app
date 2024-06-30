@@ -1,7 +1,8 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-    id 'io.realm.kotlin'
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.jetbrains.kotlin)
+    alias(libs.plugins.jetbrains.kotlin.compose)
+    id("io.realm.kotlin")
 }
 
 android {
@@ -32,9 +33,9 @@ android {
     buildFeatures {
         compose true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion ProjectConfig.extensionVersion
-    }
+//    composeOptions {
+//        kotlinCompilerExtensionVersion ProjectConfig.extensionVersion
+//    }
     packagingOptions {
         resources.excludes.add("META-INF/*")
     }

@@ -1,9 +1,9 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.jetbrains.kotlin)
+    alias(libs.plugins.google.ksp)
 //    id 'kotlin-kapt'
-    id 'com.google.devtools.ksp'
-    id 'io.realm.kotlin'
+    id("io.realm.kotlin")
 }
 
 android {

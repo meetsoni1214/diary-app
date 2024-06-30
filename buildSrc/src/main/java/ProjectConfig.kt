@@ -1,6 +1,6 @@
 object ProjectConfig {
     const val compileSdk = 34
-    const val minSdk = 21
+    const val minSdk = 23
     const val targetSdk = 34
-    const val extensionVersion = "1.4.6"
+    const val extensionVersion = "1.6.7"
 }

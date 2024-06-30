@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var imageToDeleteDao: ImageToDeleteDao
     private var keepSplashOpened = true
-    @RequiresApi(Build.VERSION_CODES.N)
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen().setKeepOnScreenCondition {

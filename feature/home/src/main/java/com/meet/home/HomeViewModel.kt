@@ -28,7 +28,7 @@ import kotlinx.coroutines.withContext
 import java.time.ZonedDateTime
 import javax.inject.Inject
 
-@RequiresApi(Build.VERSION_CODES.N)
+@RequiresApi(Build.VERSION_CODES.O)
 @HiltViewModel
 internal class HomeViewModel @Inject constructor(
     private val connectivity: NetworkConnectivityObserver,
@@ -49,6 +49,7 @@ internal class HomeViewModel @Inject constructor(
             }
         }
     }
+    @RequiresApi(Build.VERSION_CODES.O)
     fun getDiaries(fromDate: ZonedDateTime? = null, toDate: ZonedDateTime? = null) {
         dateIsSelected = (fromDate != null && toDate != null)
         diaries.value = RequestState.Loading
@@ -58,6 +59,7 @@ internal class HomeViewModel @Inject constructor(
             observeAllDiaries()
         }
     }
+    @RequiresApi(Build.VERSION_CODES.O)
     @OptIn(FlowPreview::class)
     private fun observeAllDiaries() {
         allDiariesJob = viewModelScope.launch {

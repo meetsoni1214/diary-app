@@ -1,30 +1,35 @@
 [versions]
-compose = "1.4.6"
-kotlin = "1.8.20"
-core-ktx = "1.12.0"
-lifecycle-runtime = "2.6.2"
-activity-compose = "1.7.2"
-material3-compose = "1.2.0-alpha08"
+compose = "1.6.8"
+kotlin = "2.0.0"
+core-ktx = "1.13.1"
+lifecycle-runtime = "2.8.2"
+activity-compose = "1.9.0"
+material3-compose = "1.2.1"
+realmGradlePlugin = "2.0.0"
 junit = "4.13.2"
-junit-ext = "1.1.5"
-espresso = "3.5.1"
-compose-navigation = "2.7.3"
-firebase-auth = "22.1.2"
-firebase-storage = "20.2.1"
-room = "2.5.2"
-runtime-compose = "2.6.2"
+junit-ext = "1.2.1"
+espresso = "3.6.1"
+compose-navigation = "2.7.7"
+firebase-auth = "23.0.0"
+firebase-storage = "21.0.0"
+room = "2.6.1"
+runtime-compose = "2.8.2"
 splash = "1.0.1"
 realm = "1.11.0"
-kotlin-coroutines-core = "1.7.1"
-dagger-hilt = "2.48"
+kotlin-coroutines-core = "1.8.0"
+dagger-hilt = "2.49"
 hilt-navigation-compose = "1.2.0"
 coil = "2.3.0"
 # [DEPRECATED]
 #accompanist = "0.27.0"
 date-time-picker = "1.0.2"
-message-bar-compose = "1.0.5"
-one-tap-compose = "1.0.7"
-desugar = "2.0.3"
+message-bar-compose = "1.0.8"
+one-tap-compose = "1.0.12"
+desugar = "2.0.4"
+agp = "8.4.2"
+googleGms = "4.4.2"
+ksp = "2.0.0-1.0.22"
+
 
 [libraries]
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx"}
@@ -50,6 +55,7 @@ runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", ver
 splash-api = { module = "androidx.core:core-splashscreen", version.ref = "splash"}
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines-core"}
 realm-sync = { module = "io.realm.kotlin:library-sync", version.ref = "realm"}
+realm-kotlin-gradle-plugin = { module = "io.realm.kotlin:gradle-plugin", version.ref = "realmGradlePlugin" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger-hilt"}
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "dagger-hilt"}
 hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-navigation-compose"}
@@ -62,3 +68,12 @@ time-dialog = { module = "com.maxkeppeler.sheets-compose-dialogs:clock", version
 message-bar-compose = { module = "com.github.stevdza-san:MessageBarCompose", version.ref = "message-bar-compose"}
 one-tap-compose = { module = "com.github.stevdza-san:OneTapCompose", version.ref = "one-tap-compose"}
 desugar-jdk = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar"}
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp"}
+android-library = { id = "com.android.library", version.ref = "agp"}
+jetbrains-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin"}
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger-hilt"}
+google-services = { id = "com.google.gms.google-services", version.ref = "googleGms"}
+google-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
+jetbrains-kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin"}

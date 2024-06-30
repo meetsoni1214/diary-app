@@ -1,11 +1,12 @@
+
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-//    id 'kotlin-kapt'
-    id 'com.google.devtools.ksp'
-    id 'dagger.hilt.android.plugin'
-    id 'io.realm.kotlin'
-    id 'com.google.gms.google-services'
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.kotlin)
+    alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.google.ksp)
+    alias(libs.plugins.jetbrains.kotlin.compose)
+    id("io.realm.kotlin")
 }
 
 android {
@@ -43,9 +44,9 @@ android {
     buildFeatures {
         compose true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion ProjectConfig.extensionVersion
-    }
+//    composeOptions {
+//        kotlinCompilerExtensionVersion ProjectConfig.extensionVersion
+//    }
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
